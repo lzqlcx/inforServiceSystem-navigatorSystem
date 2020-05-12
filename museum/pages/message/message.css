@@ -1,0 +1,214 @@
+/* 标题图片 */
+.musuemPicture_yrn{
+	background:url(https://www.dpm.org.cn/Uploads/Picture/2020/04/29/s5ea9744238b72.jpg);//动态绑定图片？
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 400rpx;
+	position: relative;
+}
+.musuemTitle_yrn{
+	margin-bottom: 30rpx;
+	margin-left: 40rpx;
+	position: absolute;
+	bottom: 0;
+}
+.musuemTitle_yrn text{
+	font-size: 50rpx;
+	font-family: 'PingFangSC-Medium';
+	font-style: normal;
+	color: #000000;
+}
+.musuemTitle_yrn p{
+	color: #000000;
+	margin-top: 10rpx;
+	font-family: 'PingFangSC-light';
+	font-style: normal;
+	font-size: 25rpx;
+}
+/* 导航栏 */
+.navigation_yrn {
+}
+.navigation_yrn ul {
+    list-style-type: none;
+    width:100%;
+    overflow: hidden;
+    background-color: white;
+    text-align:center;
+	padding-left: 0;
+}
+.navigation_yrn ul li {
+    display:inline-block;
+    margin:5rpx 30rpx;
+}
+.navigation_yrn ul li a {
+    border-radius: 10rpx;
+	padding: 5rpx 20rpx;
+	color:#808080;
+    text-decoration: none;
+    text-align:center;
+	font-size: 25rpx;
+}
+/* 鼠标移动到选项上修改背景颜色 */
+.navigation_yrn ul li a:hover {
+    background-color: lightskyblue;
+}
+
+/* 介绍 */
+.introduction_yrn{
+	border-top: 3rpx solid #f1f1f1;
+	padding: 20rpx 30rpx;
+	position:relative;
+}
+.introduction_yrn p{
+	margin-top: 10rpx;
+	font-size: 20rpx;
+	margin-bottom: 10rpx;
+}
+
+/* 讲解 */
+.card_qj{
+	border-top: 15rpx solid #f1f1f1;
+	padding: 20rpx;
+} /* 外层包裹卡片 */
+#explain_qj{
+	/* border-bottom: 3rpx solid #f1f1f1; */
+	padding-bottom: 15rpx;
+}
+.explainTitle_qj{
+	padding-top: 10rpx;
+	padding-bottom: 7rpx;
+}
+.tag_qj ul{
+	padding-left: 0;
+}
+.tag_qj ul li{
+	display: inline-block;
+    padding: 12rpx 18rpx;
+    border: 2rpx solid gray;
+    border-radius: 6rpx;
+	margin-right: 5rpx;
+	text-align: center;
+    font-weight: 400;
+    font-size: 15rpx;
+    color: gray;
+}
+/* 鼠标移至后标签的颜色修改 */
+.tag_qj ul li:hover{
+	color: #FFFFFF;
+	background-color: #000000;
+}
+/* 按钮样式 */
+.unlock_qj{
+	float: right;
+	padding: 5rpx 20rpx;
+    background-color: #87CEFA; /* LightSkyBlue */
+    border-radius: 25rpx;
+    border: none;
+    font-size: 15rpx;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.unlock_qj:hover{
+    background-color: #4A81AA;
+	color: #FFFFFF;
+}
+/* 讲解要点 */
+.explainPoint_qj{
+	margin: 15px;
+	text-align: center;
+}
+.explainPoint_qj p{
+	display: inline-block;
+	font-size: 20rpx;
+	margin: 5rpx 40rpx;
+}
+.explainPoint_qj text{
+	color: #888888;
+}
+/* 试听 */
+.audition_qj button{
+	display: inline-block;
+	color: #4A81AA;
+	background-color: #f1f1f1;
+	padding: 5rpx 25rpx;
+	margin-right: 15rpx;
+	border-radius: 20rpx;
+	border: none;
+    margin-bottom: 5rpx;
+	font-size: 15rpx;
+	transition: 0.25s;
+	cursor: pointer;
+}
+.audition_qj button:hover{
+	background-color: #4A81AA;
+	color: #FFFFFF;
+}
+/* 讲解员tag */
+.guideIntro_qj{
+	border-top: 2px solid #f1f1f1;
+	margin-top: 10px;
+	padding-top: 20px;
+	margin-bottom: 70px;
+}
+.guideIntro_qj p{
+	float: left;
+}
+.guideIntro_qj img{
+	border-radius: 50%;
+	vertical-align: middle;
+}
+.guideIntro_qj text{
+	display: inline-block;
+	vertical-align: middle;
+	margin: 5rpx;
+	padding: 3rpx;
+	font-size: 15rpx;
+}
+.guideLogo_qj{
+	border: 2rpx solid #4A81AA;
+	border-radius: 5rpx;
+	color: #4A81AA;
+}
+
+/* 讲解录制 */
+.recordExplain_qj{
+	text-align: center;
+	border-top: 15rpx solid #f1f1f1;
+	padding: 10rpx 0;
+	margin-bottom: 10rpx;
+}
+.recordExplain_qj i{
+	font-size: 25rpx;
+	cursor: pointer;
+}
+.recordExplain_qj i:hover{
+	color: #87CEFA;
+}
+
+/* 藏品与展览 */
+.picContent_qj{
+	position: relative;
+    height: 370rpx;
+    margin-bottom: 25rpx;
+    overflow-x: scroll; /* 总显示滚动条 */
+    overflow-y: hidden; /* 超出隐藏 */
+    white-space: nowrap; /* 段落中的文本:文本不换行直到<br> */
+}
+.picContent_qj text{
+	font-size: 20rpx;
+}
+.picContent_qj ul{
+    position: absolute;
+    left: 0;
+    top: 20rpx;
+    display: flex;
+}
+.picContent_qj ul li{
+    float: left;
+    min-width: 300rpx;
+    max-height: 295rpx;
+    margin-right: 20rpx;
+    background: #fff;
+    list-style: none;
+}

@@ -1,0 +1,150 @@
+/* 标题图片 */
+.musuemPicture_yrn{
+	background:url(https://www.dpm.org.cn/Uploads/Picture/2020/04/29/s5ea9744238b72.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 400rpx;
+	position: relative;
+}
+.musuemTitle_yrn{
+	margin-bottom: 30rpx;
+	margin-left: 40rpx;
+	position: absolute;
+	bottom: 0;
+}
+.musuemTitle_yrn text{
+	font-size: 50rpx;
+	font-family: 'PingFangSC-Medium';
+	font-style: normal;
+	color: #000000;
+}
+.musuemTitle_yrn ._p{
+	color: #000000;
+	margin-top: 10rpx;
+	font-family: 'PingFangSC-light';
+	font-style: normal;
+	font-size: 25rpx;
+}
+/* 导航栏 */
+.navigation_yrn {
+}
+.navigation_yrn ._ul {
+    list-style-type: none;
+    width:100%;
+    overflow: hidden;
+    background-color: white;
+    text-align:center;
+	padding-left: 0;
+}
+.navigation_yrn ._ul ._li {
+    display:inline-block;
+    margin:5rpx 30rpx;
+}
+.navigation_yrn ._ul ._li ._a {
+    border-radius: 10rpx;
+	padding: 5rpx 20rpx;
+	color:#808080;
+    text-decoration: none;
+    text-align:center;
+	font-size: 25rpx;
+}
+/* 鼠标移动到选项上修改背景颜色 */
+.navigation_yrn ._ul ._li ._a:hover {
+    background-color: lightskyblue;
+}
+/* 介绍 */
+.introduction_yrn{
+	border-top: 3rpx solid #f1f1f1;
+	padding-top: 20rpx;
+	padding-left: 40rpx;
+	padding-right: 40rpx;
+	padding-bottom: 20rpx;
+	position:relative;
+}
+.introduction_yrn ._p{
+	margin-top: 10rpx;
+	font-size: 20rpx;
+	margin-bottom: 10rpx;
+}
+/* 讲解 */
+.card_qj{
+	border-top: 15rpx solid #f1f1f1;
+	padding: 20rpx;
+}
+/* 外层包裹卡片 */
+#explain_qj{
+	border-bottom: 3rpx solid #f1f1f1;
+	padding-bottom: 15rpx;
+}
+.explainTitle_qj{
+	padding-top: 10rpx;
+	padding-bottom: 7rpx;
+}
+.tag_qj ._ul{
+	padding-left: 0;
+}
+.tag_qj ._ul ._li{
+	display: inline-block;
+    padding: 12rpx 18rpx;
+    border: 2rpx solid gray;
+    border-radius: 6rpx;
+	margin-right: 5rpx;
+	text-align: center;
+    font-weight: 400;
+    font-size: 15rpx;
+    color: gray;
+}
+/* 鼠标移至后标签的颜色修改 */
+.tag_qj ._ul ._li:hover{
+	color: #FFFFFF;
+	background-color: #000000;
+}
+/* 按钮样式 */
+.unlock_qj{
+	float: right;
+	padding: 5rpx 20rpx;
+    background-color: #87CEFA; /* LightSkyBlue */
+    border-radius: 25rpx;
+    border: none;
+    font-size: 15rpx;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.unlock_qj:hover{
+    background-color: #4A81AA;
+	color: #FFFFFF;
+}
+/* 讲解要点 */
+.explainPoint_qj{
+	margin: 15px;
+	text-align: center;
+}
+.explainPoint_qj ._p{
+	display: inline-block;
+	font-size: 20rpx;
+	margin: 5rpx 40rpx;
+}
+.explainPoint_qj text{
+	color: #888888;
+}
+/* 试听 */
+.audition_qj button{
+	display: inline-block;
+	color: #4A81AA;
+	background-color: #f1f1f1;
+	padding: 5rpx 20rpx;
+	margin-right: 10rpx;
+	border-radius: 20px;
+	border: none;
+    margin-bottom: 5px;
+	-webkit-transition: 0.25s;
+	transition: 0.25s;
+	cursor: pointer;
+}
+.audition_qj button:hover{
+	background-color: #4A81AA;
+	color: #FFFFFF;
+}
+
