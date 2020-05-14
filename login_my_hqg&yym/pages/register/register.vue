@@ -13,7 +13,7 @@
 			<template v-if="!status">
 				<input type="text" v-model="username"
 				class="uni-input common_input_hgq"
-				placeholder="请输入邮箱" />
+				placeholder="昵称/手机号" />
 				
 				<view class="login_input_box_hgq">
 					<input type="text" v-model="password"
@@ -21,41 +21,49 @@
 					placeholder="请输入密码" />
 					<view class="forget u-f-ajc login_font_color_hgq">忘记密码</view>
 				</view>
-				<button class="login_user_set_btn_hgq"
-				:loading="loading" :class="{'login_user_set_btn_disable_hgq':disabled}" 
-				type="primary" @tap="submit" :disabled="disabled">登录</button>
 			</template>
 			
 			
-			<!-- 注册 -->
+			<!-- 手机验证码登录 -->
 			<template v-else>
 				<view class="login_input_box_hgq">
+					<view class="phone u-f-ajc">+86</view>
 					<input type="text" v-model="phone"
-					class="uni-input common_input_hgq"
-					placeholder="邮箱" />
+					class="uni-input common_input_hgq phone-input"
+					placeholder="手机号" />
 				</view>
 				<view class="login_input_box_hgq">
 					<input type="text" v-model="checknum"
 					class="uni-input common_input_hgq forget-input"
-					placeholder="请设置密码" />
-		
+					placeholder="请输入验证码" />
+					<view class="forget u-f-ajc login_font_color_hgq phone_input_hqg"
+					@tap="getCheckNum">
+						<view class="u-f-ajc">{{!codetime?'获取验证码':codetime+' s'}}</view>
+					</view>
 				</view>
-			
+			</template>
 			
 			
 			<button class="login_user_set_btn_hgq" 
 			:loading="loading" :class="{'login_user_set_btn_disable_hgq':disabled}" 
-			type="primary" @tap="submit" :disabled="disabled">注册</button>
-		</template>
+			type="primary" @tap="submit" :disabled="disabled">登录</button>
 		</view>
 		
-		<!-- 登录/注册状态切换 -->
+		<!-- 登录状态切换 -->
 		<view class="login-status u-f-ajc login_padding_hgq login_font_color_hgq" 
 		@tap="changeStatus">
-			{{status?'账号密码登录':'没有账号？马上注册'}}<view class="icon iconfont icon-jinru login_font_color_hgq"></view>
+			{{status?'账号密码登录':'验证码登录'}}<view class="icon iconfont icon-jinru login_font_color_hgq"></view>
 		</view>
 		
+		<!-- 第三方登陆 -->
+		<view class="other-login-title u-f-ajc login_padding_hgq login_font_color_hgq">第三方登录</view>
+		<other-login :noback="false"></other-login>
 		
+		<!-- 协议 -->
+		<view class="login-rule u-f-ajc login_padding_hgq login_font_color_hgq">
+			注册即代表您同意
+			<view>《XXX协议》</view>
+		</view>
 		
 	</view>
 </template>
@@ -250,7 +258,7 @@
 	font-weight: bold;
 }
 .login_input_box_hgq .phone-input{
-	
+	padding-left: 100upx;
 }
 .login_user_set_btn_hgq{
 	width: 90%;
