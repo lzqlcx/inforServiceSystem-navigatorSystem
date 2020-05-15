@@ -55,13 +55,26 @@
         ,{
             "path" : "pages/myFace/myFace",
             "style" : {}
-        }
+        },
+		,{
+			"path": "pages/message/message",
+			"style":{
+				"navigationBarTitleText":"信息页",
+				"navigationBarBackgroundColor":"#4A81AA",
+				"app-plus":{
+					"pullToRefresh":{
+						"color":"#DDD5AF"
+					}
+				}
+			}
+		},
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "公共页面标题",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8",
+		"enablePullDownRefresh":true
 	},
 	"tabBar": {
 		"color":"#C09460",
