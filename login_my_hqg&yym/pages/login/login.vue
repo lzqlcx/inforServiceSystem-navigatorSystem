@@ -9,9 +9,9 @@
 		<!-- 输入框+按钮 -->
 		<view class="login_body_hgq">
 			
-			<!-- 账号密码登录 -->
+			<!-- 邮箱、密码登录 -->
 			<template v-if="!status">
-				<input type="text" v-model="username"
+				<input type="text" v-model="useremail"
 				class="uni-input common_input_hgq"
 				placeholder="请输入邮箱" />
 				
@@ -19,11 +19,12 @@
 					<input type="text" v-model="password"
 					class="uni-input common_input_hgq forget-input"
 					placeholder="请输入密码" />
-					<view class="forget u-f-ajc login_font_color_hgq">忘记密码</view>
 				</view>
+			
+				
 				<button class="login_user_set_btn_hgq"
 				:loading="loading" :class="{'login_user_set_btn_disable_hgq':disabled}" 
-				type="primary" @tap="submit" :disabled="disabled">登录</button>
+				type="primary" :disabled="disabled">登录</button>
 			</template>
 			
 			
@@ -41,11 +42,9 @@
 		
 				</view>
 			
-			
-			
 			<button class="login_user_set_btn_hgq" 
 			:loading="loading" :class="{'login_user_set_btn_disable_hgq':disabled}" 
-			type="primary" @tap="submit" :disabled="disabled">注册</button>
+			type="primary" :disabled="disabled">注册</button>
 		</template>
 		</view>
 		
@@ -61,6 +60,9 @@
 </template>
 
 <script>
+	// 做表单验证需引用的插件
+	// 来自 graceUI 的表单验证,兼容uni-app及微信小程序的优秀前端框架，大幅度提高布局效率
+	var  graceChecker = require("../../common/graceChecker.js");
 	import uniStatusBar from "../../components/uni-status-bar/uni-status-bar.vue";
 	import otherLogin from "../../components/home/other-login.vue";
 	export default {
@@ -70,10 +72,10 @@
 		},
 		data() {
 			return {
-				status:false,//false代表账号密码登录，true代表手机验证码登录
+				status:false,//false代表邮箱、密码登录页面，true代表注册页面
 				disabled:true,
 				loading:false,
-				username:"",
+				useremail:"",
 				password:"",
 				phone:"",
 				checknum:"",
@@ -81,7 +83,7 @@
 			}
 		},
 		watch:{
-			username(val){
+			useremail(val){
 				this.OnBtnChange();
 			},
 			password(val){
@@ -100,30 +102,26 @@
 				let mPattern = /^1[34578]\d{9}$/; 
 				return mPattern.test(this.phone);
 			},
-			// 获取验证码
-			async getCheckNum(){
-				if(this.codetime > 0)return;
-				// 验证手机号合法性
-				if(!this.isPhone()){
-					return uni.showToast({ title: '请输入正确的手机号码', icon:"none" });
-				}
-				// 请求服务器，发送验证码
-				let [err,res] = await this.$http.post('/user/sendcode',{
-					phone:this.phone
-				});
-				// 请求失败处理
-				this.$http.errorCheck(err,res);
-				if (res.data.errorCode === 30001) return;
-				// 发送成功，开启倒计时
-				this.codetime=60;
-				let timer=setInterval(()=>{
-					this.codetime--;
-					if(this.codetime < 1){
-						clearInterval(timer);
-						this.codetime=0;
-					}
-				},1000);
-			},
+		      formSubmit: function (e) {
+		                //将下列代码加入到对应的检查位置
+		                //定义表单规则
+		                var rule = [
+		                    {name:"email_name", checkType : "email", checkRule:"",  errorMsg:"请填写您的邮箱"},
+		                ];
+		                //进行表单检查
+		                var formData = e.detail.value;
+		                var checkRes = graceChecker.check(formData, rule);
+		                if(checkRes){
+		                    uni.showToast({title:"验证通过!", icon:"none"});
+		                }else{
+		                    uni.showToast({ title: graceChecker.error, icon: "none" });
+		                }
+		            },
+		            formReset: function (e) {
+		                console.log("清空数据")
+		                this.chosen = ''
+		            },
+			
 			// 初始化表单
 			initInput(){
 				this.username='';
@@ -133,12 +131,12 @@
 			},
 			// 改变按钮状态
 			OnBtnChange(){
-				if( (this.username && this.password)||(this.phone && this.checknum) ){
+				if( (this.useremail && this.password)||(this.phone && this.checknum) ){
 					this.disabled=false; return;
 				}
 				this.disabled=true;
 			},
-			// 切换登录状态
+			// 切换登录状态--->注册
 			changeStatus(){
 				this.initInput();
 				this.status = !this.status;
@@ -147,31 +145,7 @@
 			back(){
 				uni.navigateBack({ delta: 1 });
 			},
-			// 提交登录
-			submit(){
-				// 账号密码登录
-				if(!this.status){
-					return this.User.login({
-						url:"/user/login",
-						data:{
-							username:this.username,
-							password:this.password
-						}
-					})
-				}
-				// 验证码登录
-				// 验证手机号合法性
-				if(!this.isPhone()){
-					return uni.showToast({ title: '请输入正确的手机号码', icon:"none" });
-				}
-				return this.User.login({
-					url:"/user/phonelogin",
-					data:{
-						phone:this.phone,
-						code:this.checknum
-					}
-				});
-			}
+
 		}
 	}
 </script>
@@ -191,16 +165,17 @@
 }
 .icon-guanbi{
 	position: fixed;
-	top: 90upx;
+	top: 110rpx;
 	left: 10upx;
 	font-size: 40upx;
 	font-weight: bold;
 	color: #332F0A;
 	z-index: 100;
 }
-.loginhead_hgq{ width: 100%; }
+.loginhead_hgq{ width: 100%; border-radius: 10upx;}
 .login_body_hgq{
 	padding: 0 20upx!important;
+	margin-top: 50rpx;
 }
 .common_input_hgq{
 	font-size: 30upx;
@@ -276,6 +251,7 @@
 .uni-input {
 	height: 50upx;
 	padding: 15upx 25upx;
+	border-radius: 10upx;
 	line-height:50upx;
 	font-size:28upx;
 	background:#FFF;

@@ -55,7 +55,7 @@
         ,{
             "path" : "pages/myFace/myFace",
             "style" : {}
-        },
+        }
 		,{
 			"path": "pages/message/message",
 			"style":{
@@ -67,7 +67,7 @@
 					}
 				}
 			}
-		},
+		}
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

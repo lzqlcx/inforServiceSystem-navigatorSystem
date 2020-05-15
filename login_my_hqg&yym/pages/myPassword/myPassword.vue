@@ -34,6 +34,7 @@
 		onLoad(e) {
 			this.hasPassword = !!(e.password && e.password !== "false");
 		},
+	
 		watch:{
 			oldpassword(val){
 				this.change();
