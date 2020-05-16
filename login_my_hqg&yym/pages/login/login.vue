@@ -11,12 +11,18 @@
 			
 			<!-- 邮箱、密码登录 -->
 			<template v-if="!status">
-				<input type="text" v-model="useremail"
+				<input type="text"
+				v-model="mail"
+				@change="email" 
 				class="uni-input common_input_hgq"
 				placeholder="请输入邮箱" />
 				
+				
 				<view class="login_input_box_hgq">
-					<input type="text" v-model="password"
+					<input type="text" 
+					password 
+					v-model="password"
+					@change="mima"
 					class="uni-input common_input_hgq forget-input"
 					placeholder="请输入密码" />
 				</view>
@@ -24,19 +30,22 @@
 				
 				<button class="login_user_set_btn_hgq"
 				:loading="loading" :class="{'login_user_set_btn_disable_hgq':disabled}" 
-				type="primary" :disabled="disabled">登录</button>
+				type="primary" :disabled="disabled" @tap="checkpassword">登录</button>
 			</template>
 			
 			
 			<!-- 注册 -->
 			<template v-else>
 				<view class="login_input_box_hgq">
-					<input type="text" v-model="phone"
+					<input type="text" 
+					v-model="mail"
+					@change="email"
 					class="uni-input common_input_hgq"
 					placeholder="邮箱" />
 				</view>
 				<view class="login_input_box_hgq">
-					<input type="text" v-model="checknum"
+					<input type="text" 
+					v-model="password"
 					class="uni-input common_input_hgq forget-input"
 					placeholder="请设置密码" />
 		
@@ -60,9 +69,6 @@
 </template>
 
 <script>
-	// 做表单验证需引用的插件
-	// 来自 graceUI 的表单验证,兼容uni-app及微信小程序的优秀前端框架，大幅度提高布局效率
-	var  graceChecker = require("../../common/graceChecker.js");
 	import uniStatusBar from "../../components/uni-status-bar/uni-status-bar.vue";
 	import otherLogin from "../../components/home/other-login.vue";
 	export default {
@@ -75,12 +81,10 @@
 				status:false,//false代表邮箱、密码登录页面，true代表注册页面
 				disabled:true,
 				loading:false,
-				useremail:"",
+				mail:"",
 				password:"",
-				phone:"",
-				checknum:"",
 				codetime:0,
-			}
+				}
 		},
 		watch:{
 			useremail(val){
@@ -88,55 +92,38 @@
 			},
 			password(val){
 				this.OnBtnChange();
-			},
-			phone(val){
-				this.OnBtnChange();
-			},
-			checknum(val){
-				this.OnBtnChange();
 			}
 		},
 		methods: {
 			// 验证手机号码
-			isPhone(){
-				let mPattern = /^1[34578]\d{9}$/; 
-				return mPattern.test(this.phone);
+			email: function() {
+			      var email = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+			      if (!email.test(this.mail)) {
+			        uni.showToast({title: '邮箱格式错误！',icon: 'none'});		
+			        this.mail = "";
+			      }
+			    },
+			mima: function() {
+			      var password = /^(?![a-zA-z]+$)(?!\d+$){6,16}$/;
+			      if (!password.test(this.password)) {
+			        uni.showToast({title: '密码长度6-16，必须由数字和字母组成！',icon: 'none'});		
+			        this.password = "";
+			      }
+			    },
 			},
-		      formSubmit: function (e) {
-		                //将下列代码加入到对应的检查位置
-		                //定义表单规则
-		                var rule = [
-		                    {name:"email_name", checkType : "email", checkRule:"",  errorMsg:"请填写您的邮箱"},
-		                ];
-		                //进行表单检查
-		                var formData = e.detail.value;
-		                var checkRes = graceChecker.check(formData, rule);
-		                if(checkRes){
-		                    uni.showToast({title:"验证通过!", icon:"none"});
-		                }else{
-		                    uni.showToast({ title: graceChecker.error, icon: "none" });
-		                }
-		            },
-		            formReset: function (e) {
-		                console.log("清空数据")
-		                this.chosen = ''
-		            },
-			
 			// 初始化表单
 			initInput(){
-				this.username='';
+				this.useremail='';
 				this.password='';
-				this.phone='';
-				this.checknum='';
 			},
 			// 改变按钮状态
 			OnBtnChange(){
-				if( (this.useremail && this.password)||(this.phone && this.checknum) ){
+				if(this.useremail && this.password){
 					this.disabled=false; return;
 				}
 				this.disabled=true;
 			},
-			// 切换登录状态--->注册
+			// 切换登录状态
 			changeStatus(){
 				this.initInput();
 				this.status = !this.status;
@@ -145,7 +132,24 @@
 			back(){
 				uni.navigateBack({ delta: 1 });
 			},
-
+			// 提交登录
+			submit(){
+				// 账号密码登录
+				if(!this.status){
+					return this.User.login({
+						url:"/user/login",
+						data:{
+							username:this.useremail,
+							password:this.password
+						}
+					})
+				}
+				// 验证码登录
+				// 验证手机号合法性
+				if(!this.isEmail()){
+					return uni.showToast({ title: '请输入正确的邮箱', icon:"none" });
+				}
+				
 		}
 	}
 </script>
