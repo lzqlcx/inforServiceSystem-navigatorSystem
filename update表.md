@@ -23,3 +23,6 @@
 
 黄国庆：更新login文件夹
 
+#### 2020-05-15-13:24  第二次git项目
+
+钱晋：合并exhibition到login文件夹，更新museum.vue与联合仓库上传教程.md

@@ -91,8 +91,8 @@
 		    </view>
 		    <view class="picContent_qj">
 		        <ul>
-					<!-- 静态请求图片 -->
-		            <li><img src="" title="展览图"><br><text>{{picList_qj.exhName1}}</text></li>
+					<!-- 静态请求图片&&页面跳转 -->
+		            <li @tap="goDetail_qj()"><img src="/static/guide01.png" title="展览图"><br><text>{{picList_qj.exhName1}}</text></li>
 		            <li><img src="" title="展览图"><br><text>{{picList_qj.exhName2}}</text></li>
 		            <li><img src="" title="展览图"><br><text>{{picList_qj.exhName3}}</text></li>
 		            <li><img src="" title="展览图"><br><text>{{picList_qj.exhName4}}</text></li>
@@ -138,6 +138,11 @@
 			}
 		},
 		methods: {
+			goDetail_qj: function() {
+				uni.navigateTo({
+				    url: '../exhibition/exhibition'
+				});
+			}
 		}
 	}
 </script>
@@ -145,4 +150,3 @@
 <style>
 @import url("./message.css");
 </style>
- 		            <li><img src="" title="藏品图"><br><text>{{picList_qj.picName4}}</text></li>

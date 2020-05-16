@@ -67,6 +67,10 @@
 					}
 				}
 			}
+		},
+		{
+			"path":"pages/exhibition/exhibition",
+			"style":{}
 		}
     ],
 	"globalStyle": {
