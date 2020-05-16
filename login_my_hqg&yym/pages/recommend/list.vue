@@ -16,7 +16,7 @@
 				<view id="demo2" class="scroll-view-item_H uni-bg-green">展览2</view>
 				<view id="demo3" class="scroll-view-item_H uni-bg-blue">展览3</view> -->
 				<view class="scroll-view-item_H" v-for="item in listData" :key="item.id">
-					<image :src="item.cover"></image>
+					<image :src="item.cover" @tap="goDetail_yrn()"></image>
 				</view>
 			</scroll-view>
 		</view>
@@ -127,6 +127,11 @@
                     url: '../details/details?detailDate=' + encodeURIComponent(JSON.stringify(detail))
                 });
             },
+			goDetail_yrn: function() {
+				uni.navigateTo({
+				    url: '../message/message'
+				});
+			},
 			scroll: function(e) {
 				console.log(e,'list')
 				this.old.scrollTop = e.detail.scrollTop

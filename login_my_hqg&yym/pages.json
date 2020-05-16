@@ -59,8 +59,7 @@
 		,{
 			"path": "pages/message/message",
 			"style":{
-				"navigationBarTitleText":"信息页",
-				"navigationBarBackgroundColor":"#4A81AA",
+				"navigationBarTitleText":"博物馆信息",
 				"app-plus":{
 					"pullToRefresh":{
 						"color":"#DDD5AF"
@@ -70,7 +69,15 @@
 		},
 		{
 			"path":"pages/exhibition/exhibition",
-			"style":{}
+			"style":{
+				"navigationBarTitleText":"展览信息"
+			}
+		},
+		{
+			"path":"pages/collection/collection",
+			"style":{
+				"navigationBarTitleText":"藏品信息"
+			}
 		}
     ],
 	"globalStyle": {

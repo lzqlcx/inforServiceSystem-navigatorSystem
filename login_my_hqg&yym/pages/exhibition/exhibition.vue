@@ -41,10 +41,15 @@
 	height: 400rpx;
 }
 .exhTitle1_qj{
+	font-size: 45rpx;
 	margin: auto 15rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
 }
 .exhIntroCard_qj p{
 	margin: auto 15rpx;
-	font-size: 25rpx;
+	font-size: 30rpx;
 }
 </style>

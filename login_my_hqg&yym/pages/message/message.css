@@ -1,11 +1,18 @@
 /* 标题图片 */
 .musuemPicture_yrn{
-	background:url(https://www.dpm.org.cn/Uploads/Picture/2020/04/29/s5ea9744238b72.jpg);//动态绑定图片？
+/* 	background:url(https://www.dpm.org.cn/Uploads/Picture/2020/04/29/s5ea9744238b72.jpg);//动态绑定图片？
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+	background-size: cover; */
 	height: 400rpx;
 	position: relative;
+}
+.exhShow_yrn{
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	max-width: 800rpx;
+    margin: 0 auto;
+	height: 400rpx;
 }
 .musuemTitle_yrn{
 	margin-bottom: 30rpx;
@@ -71,14 +78,14 @@
 	border-top: 15rpx solid #f1f1f1;
 	padding: 20rpx;
 } /* 外层包裹卡片 */
-#explain_qj{
+.explain_qj{
 	/* border-bottom: 3rpx solid #f1f1f1; */
-	padding-bottom: 15rpx;
+	padding-bottom: 0rpx;
 }
-.explainTitle_qj{
+/* .explainTitle_qj{
 	padding-top: 10rpx;
 	padding-bottom: 7rpx;
-}
+} */
 .tag_qj ul{
 	padding-left: 0;
 }
@@ -146,8 +153,8 @@
 }
 /* 讲解员tag */
 .guideIntro_qj{
-	border-top: 2px solid #f1f1f1;
-	margin-top: 10px;
+	/* border-top: 2px solid #f1f1f1; */
+	/* margin-top: 10px; */
 	padding-top: 20px;
 	margin-bottom: 70px;
 }
@@ -163,7 +170,7 @@
 	vertical-align: middle;
 	margin: 5rpx;
 	padding: 3rpx;
-	font-size: 15rpx;
+	font-size: 25rpx;
 }
 .guideLogo_qj{
 	border: 2rpx solid #4A81AA;
@@ -189,7 +196,7 @@
 /* 藏品与展览 */
 .picContent_qj{
 	position: relative;
-    height: 370rpx;
+    height: 250rpx;
     margin-bottom: 25rpx;
     overflow-x: scroll; /* 总显示滚动条 */
     overflow-y: hidden; /* 超出隐藏 */

@@ -2,7 +2,8 @@
 	<view class="museum_yrn">
 		<!-- 头部模块 -->
 		<view class="musuemPicture_yrn">
-			<!--<image :mode="array_yrn.mode" :src="array_yrn.image_yrn"></image>-->
+			<!-- 动态绑定背景图片 -->
+			<view class="exhShow_yrn" :style="{backgroundImage: 'url(' + (array_yrn.image_yrn) + ')'}"></view>
 			<view class="musuemTitle_yrn">
 				<text class="title_yrn">{{array_yrn.title_yrn}}</text>
 				<p class="p_yrn">{{array_yrn.p_yrn}}</p>
@@ -26,32 +27,11 @@
 		<!-- 讲解模块 -->
 		<view class="card_qj">
 			<view id="explain_qj">
-                <h5>多风格讲解</h5>
+                <h5>讲解</h5>
             </view>
-			<view class="explainTitle_qj">
+<!-- 			<view class="explainTitle_qj">
 				<h6>{{array_yrn.explainTitle1_qj}}</h6>
-			</view>
-			<!-- <view class="tag_qj">
-				<ul>
-					<li>{{array_yrn.tag1_qj}}</li>
-					<li>{{array_yrn.tag2_qj}}</li>
-					<li>{{array_yrn.tag3_qj}}</li>
-					<li>{{array_yrn.tag4_qj}}</li>
-				</ul>
-				<text style="color:#ffd800">
-					★ ★ ★ ★ ★
-				</text>
 			</view> -->
-			<!-- <view class="explainPoint_qj">
-                <p>{{array_yrn.point1_qj}}<br><text>讲解点</text></p>
-                <p>{{array_yrn.point2_qj}}<br><text>收听人次</text></p>
-                <p>{{array_yrn.point3_qj}}<br><text>讲解时长</text></p>
-                <p>{{array_yrn.point4_qj}}<br><text>游玩时间</text></p>
-            </view>
-			<view class="audition_qj">
-                <button><i class="fa fa-play" aria-hidden="true"></i> 试听1</button>
-                <button><i class="fa fa-play" aria-hidden="true"></i> 试听2</button>
-            </view> -->
 			<view class="guideIntro_qj">
                 <p>
                     <!-- 静态请求图片 待更改-->
@@ -59,7 +39,7 @@
                     <text>{{array_yrn.guideName1_qj}}</text>
 					<text class="guideLogo_qj">{{array_yrn.guideTag1_qj}}</text>
                 </p>
-                <button class="unlock_qj">开始导览</button>
+                <button class="unlock_qj">听讲解</button>
             </view>
 		</view>
 		
@@ -71,12 +51,12 @@
 		<!-- 藏品模块 -->
 		<view class="card_qj">
 		    <view id="collection_qj">
-		        <h5>镇馆之宝</h5>
+		        <h5>藏品展示</h5>
 		    </view>
 		    <view class="picContent_qj">
 		        <ul>
-					<!-- 静态请求图片 -->
-		            <li><img src="" title="藏品图"><br><text>{{picList_qj.colName1}}</text></li>
+					<!-- 静态请求图片&&页面跳转 -->
+		            <li @tap="goDetail_yrn()"><img src="/static/guide01.png" title="藏品图"><br><text>{{picList_qj.colName1}}</text></li>
 		            <li><img src="" title="藏品图"><br><text>{{picList_qj.colName2}}</text></li>
 		            <li><img src="" title="藏品图"><br><text>{{picList_qj.colName3}}</text></li>
 		            <li><img src="" title="藏品图"><br><text>{{picList_qj.colName4}}</text></li>
@@ -87,7 +67,7 @@
 		<!-- 展览模块 -->
 		<view class="card_qj">
 		    <view id="exhibition_qj">
-		        <h5>热门展览</h5>
+		        <h5>相关展览</h5>
 		    </view>
 		    <view class="picContent_qj">
 		        <ul>
@@ -113,15 +93,7 @@
 					title_yrn: "故宫博物馆",
 					p_yrn: "北京的代表性景点，古老中国的特征",
 					ppp_yrn: "根据当前北京市疫情防控形势，故宫博物院自2020年5月1日起有序开放，实行预约、错峰、限流参观。相关事宜公告如下.有人说，不到西安，就不算到中国，不见兵马俑，就不算到西安。是的，西安的奇迹太多了，而兵马俑则可以说是奇迹中的奇迹。最古老的兵马俑，如今已经成了西安乃至中国的金字名片。",
-					explainTitle1_qj: "故宫博物馆讲解",
-					/* tag1_qj: "手动点读",
-					tag2_qj: "历史类",
-					tag3_qj: "中国一级",
-					tag4_qj: "主题",
-					point1_qj: "56个",
-					point2_qj: "1万",
-					point3_qj: "17分钟",
-					point4_qj: "3小时", */
+					// explainTitle1_qj: "故宫博物馆讲解",
 					guideName1_qj: "  三毛游",
 					guideTag1_qj: "官方讲解"
 				},
@@ -141,6 +113,11 @@
 			goDetail_qj: function() {
 				uni.navigateTo({
 				    url: '../exhibition/exhibition'
+				});
+			},
+			goDetail_yrn: function() {
+				uni.navigateTo({
+				    url: '../collection/collection'
 				});
 			}
 		}
