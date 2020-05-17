@@ -22,6 +22,7 @@
 	@import './common/animate.css';
 	/* 公共样式 */
 	@import './common/common.css';
+	@import "./common/main.css";
 	page{ background: #DDD5AF; }/*改变字体颜色*/
 	font{ font-family: PingFangSC-Medium,sans-serif;}
 </style>
