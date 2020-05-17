@@ -28,3 +28,7 @@
 钱晋：合并exhibition到login文件夹，更新museum.vue与联合仓库上传教程.md
 
 杨若楠：合并collection到login文件夹，更新museum.vue和recommand.vue
+
+#### 2020-05-17-11:31  第四次git项目
+
+杨若楠：上传软件工程界面设计pdf
