@@ -9,6 +9,15 @@
             <text class="article-text">发表于11</text>
             <text class="article-time">{{banner.published_at}}</text>
         </view>
+		
+		<view class="article-content">
+		    <rich-text :nodes="content"></rich-text>
+		</view>
+		<view class="" style="padding: 30upx;">
+		    <image v-for="(img,idx) in banner.news_image" :key="idx" mode="aspectFill" class="banner-img" :src="img.src"></image>
+		</view>
+		<view class="comment-wrap"></view>
+		<comments :comments="comments"></comments>
     </view>
 </template>
 <script>

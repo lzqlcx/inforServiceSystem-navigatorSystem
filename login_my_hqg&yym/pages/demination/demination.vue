@@ -2,7 +2,7 @@
 	
 	<view>
 	
-	<view class="tit_hotcity">国内热门城市</view>
+	<view class="tit_hotcity">国内热门城市1</view>
 		<view>
 			<scroll-view class="scroll-view_H"  scroll-x="true" @scroll="scroll" scroll-left="120" >
 			<view class="hot_city_item" v-for="(value, key) in hotcity_listdata" :key="key" @click="goDetail(value)">
@@ -50,11 +50,11 @@
 						city_name:"北京"
 					},
 					{
-						img:"../../static/icon/上海.jpg",
+						img:"../../static//icon/上海.jpg",
 						city_name:"上海"
 					},
 					{
-						img:"../../static/icon/广州.jpg",
+						img:"../../static//icon/广州.jpg",
 					city_name:"广州"
 					},
 					{
@@ -111,7 +111,12 @@
 			    scroll: function(e) {
 			  	console.log(e)
 			  	this.old.scrollTop = e.detail.scrollTop
-			  }
+			  },
+			  onNavigationBarButtonTap(e) {
+			      uni.navigateTo({
+			          url: "./cityselect/cityselect"
+					   });     
+			  },
 		}
 	}
 </script>

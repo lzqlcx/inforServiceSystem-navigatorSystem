@@ -7,6 +7,12 @@
 			}
 		},
 		{
+			"path": "pages/demination/cityselect/cityselect",
+			"style": {
+				"navigationBarTitleText": "推荐"
+			}
+		},
+		{
 			"path": "pages/details/details",
 			"style": {
 				"navigationBarTitleText": "详情"
@@ -88,19 +94,36 @@
 		{
 		    "path" : "pages/map-list/map-list",
 		    "style" : {
-				"navigationBarTitleText":"地图列表查询"
+				
 			}
 		},
 		{
 		    "path" : "pages/demination/demination",
 		    "style" : {
-				"navigationBarTitleText":"目的地"
+				"backgroundColor":"#333333",
+				"enablePullDownRefresh" : true ,
+				"app-plus": {
+									"bounce": "none",
+									"titleNView": {
+										"buttons": [ 
+											
+											{
+												"text" : "搜索    ",
+												"fontSize":"16",
+												//"fontSrc":"/static/iconfont.ttf",
+												"float": "right",
+												"color":"##C09460"
+											}
+										]
+									}
+								}
+			
 			}
 		},
         {
             "path" : "pages/message/feedback/feedback",
             "style" : {
-				"navigationBarTitleText":"用户反馈"
+				"navigationBarTitleText":"查找"
 				}
 			}
         
