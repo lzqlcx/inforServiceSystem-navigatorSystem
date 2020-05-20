@@ -4,8 +4,8 @@
 		<view class="musuemPicture_yrn">
 			<!-- 动态绑定背景图片 -->
 			<view class="exhShow_yrn" :style="{backgroundImage: 'url(' + (array_yrn.image_yrn) + ')'}"></view>
-			<view class="musuemTitle_yrn">
-				<text class="title_yrn">{{array_yrn.title_yrn}}</text>
+			<view class="musuemTitle_yrn" v-for="item in museumInfo" :key="item.pk">
+				<text class="title_yrn">{{item.fields.museumname}}</text>
 				<p class="p_yrn">{{array_yrn.p_yrn}}</p>
 			</view>
 		</view>
@@ -17,9 +17,9 @@
 		        <li><a href="#exhibition_qj">展览</a></li>
 		    </ul>
 		</view>
-		<view class="introduction_yrn">
+		<view class="introduction_yrn" v-for="item in museumInfo" :key="item.pk">
 			<h5 id="intro_yrn">简介</h5>
-			<p class="ppp_yrn">{{array_yrn.ppp_yrn}}</p>
+			<p class="ppp_yrn">{{item.fields.introduction}}</p>
 			<!-- 展开 收起部分 start-->
 			<!-- end  -->
 		</view>
@@ -64,6 +64,11 @@
 		    </view>
 		</view>
 		
+		<!-- 后端渲染-藏品模块 -->
+		<view v-for="item in collectionList" :key="item.pk">
+			<image :src="item.fields.collectionimage">{{item.fields.collectionname}}</image>
+		</view>
+		
 		<!-- 展览模块 -->
 		<view class="card_qj">
 		    <view id="exhibition_qj">
@@ -78,6 +83,10 @@
 		            <li><img src="" title="展览图"><br><text>{{picList_qj.exhName4}}</text></li>
 		        </ul>
 		    </view>
+		</view>
+		<!-- 后端渲染-展览模块 -->
+		<view v-for="item in exhibitionList" :key="item.pk">
+			<image :src="item.fields.exhibition_picture">{{item.fields.exhibitiontheme}}</image>
 		</view>
 		
 	</view>
@@ -106,7 +115,13 @@
 					exhName2: "展览二",
 					exhName3: "展览三",
 					exhName4: "展览四"
-				}
+				},
+				
+				
+				
+				museumInfo: [],
+				exhibitionList: [],
+				collectionList: [],
 			}
 		},
 		methods: {
@@ -119,7 +134,37 @@
 				uni.navigateTo({
 				    url: '../collection/collection'
 				});
+			},
+			
+			//获取博物馆信息
+			async getMuseumInfo() {
+				const res = await this.$myRequest({
+					url: '/museumtest/75/'
+				})
+				console.log(res)
+				this.museumInfo = res.data
 			}
+			,
+			//获取展览信息
+			async getExhibitionInfo() {
+				const res = await this.$myRequest({
+					url: '/exhibitiontest/75/'
+				})
+				console.log(res)
+				this.exhibitionList = res.data
+			},
+			async getCollectionInfo() {
+				const res = await this.$myRequest({
+					url: '/collectiontest/75/'
+				})
+				console.log(res)
+				this.collectionList = res.data
+			}
+		},
+		onLoad() {
+			this.getMuseumInfo()
+			this.getExhibitionInfo()
+			this.getCollectionInfo()
 		}
 	}
 </script>

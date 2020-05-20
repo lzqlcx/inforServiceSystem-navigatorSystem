@@ -127,6 +127,10 @@
 				}
 			}
         
+        ,{
+            "path" : "urlTest/urlTest",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
