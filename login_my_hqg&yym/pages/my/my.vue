@@ -24,12 +24,16 @@
 				</navigator>
 			</view>
 		</view>
+		
 	
 		<view class="body_yym">
-			<block v-for="(item,index) in list" :key="index">
-				<home-list-item :item="item"
-				:index="index"></home-list-item>
-			</block>
+			<view v-if="userIsLogin">
+				<block v-for="(item,index) in list" :key="index">
+					<home-list-item :item="item"
+					:index="index"></home-list-item>
+				</block>
+			</view>
+			
 		</view>
 	</view>
 </template>
@@ -45,12 +49,12 @@
 				userIsLogin: true,
 				userInfo: {},
 				list:[
-					{ icon:"",name:"账号安全",clicktype:"navigateTo",url:"../../pages/mySafe/mySafe" },
-					{ icon:"",name:"个人中心",clicktype:"navigateTo",url:"../../pages/myInfo/myInfo" },
-					{ icon:"",name:"我的讲解",clicktype:"",url:"" },
+					{ icon:"",name:"账号安全",clicktype:"navigateTo",url:"../../pages/my/mySafe" },
+					{ icon:"",name:"个人中心",clicktype:"navigateTo",url:"../../pages/my/myInfo" },
+					{ icon:"",name:"我的讲解",clicktype:"navigateTo",url:"../../pages/my/myExplanation" },
 					{ icon:"",name:"清除缓存",clicktype:"clear",url:"" },
-					{ icon:"",name:"意见反馈",clicktype:"navigateTo",url:"../../pages/myHelp/myHelp" },
-					{ icon:"",name:"关于我们",clicktype:"navigateTo",url:"../../pages/myAbout/myAbout" },
+					{ icon:"",name:"意见反馈",clicktype:"navigateTo",url:"../../pages/my/myHelp" },
+					{ icon:"",name:"关于我们",clicktype:"navigateTo",url:"../../pages/my/myAbout" },
 				]
 			}
 		},

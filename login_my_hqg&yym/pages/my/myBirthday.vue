@@ -1,19 +1,16 @@
 <template>
 	<view class="pageFill_yym">
-		<form @submit="formSubmitNickname">
-			<view class="pageBlock_yym" style="margin-top: 20upx;">
-				<input 
-					type="text"
-					name="nickname"
-					:value="globalUser.nickname" 
-					class="input"
-					placeholder="请输入昵称"
-					placeholder-class="graywords_yym"
-					maxlength="10"
-					/>
+		<form @submit="formSubmitBirthday">
+			<view class="page-block" style="margin-top: 20upx;">
+				<picker mode="date" @change="dateChange">
+					<view class="birthday_yym">2020-5-20<!--{{birthday}}--></view>
+				</picker>
 			</view>
+			
 			<button type="primary" form-type="submit" class="submitBtn_yym">提交</button>
+			
 		</form>
+		
 	</view>
 </template>
 
@@ -21,6 +18,7 @@
 	export default {
 		data() {
 			return {
+				birthday: "",
 				globalUser: {}
 			};
 		},
@@ -28,16 +26,21 @@
 			var me = this;
 			var globalUser = me.getGlobalUser("globalUser");
 			me.globalUser = globalUser;
+			me.birthday = globalUser.birthday;
 		},
 		methods: {
-			formSubmitNickname(e) {
+			dateChange(e) {
+				this.birthday = e.detail.value;
+			},
+			formSubmitBirthday() {
 				var me = this;
-				var nickname = e.detail.value.nickname;
+				var birthday = me.birthday;
+				
 				uni.request({
 					url: me.serverUrl + "/user/modifyUserinfo",
 					data: {
 						"userId": me.globalUser.id,
-						"nickname": nickname
+						"birthday": birthday
 					},
 					header: {
 						"headerUserId": me.globalUser.id,
@@ -76,20 +79,21 @@
 	position: absolute;
 }
 
-.graywords_yym {
-	color: #EAEAEA;
+.birth-input {
+	height: 80upx;
+	line-height: 40upx;
+	padding-left: 20upx;
 }
 
-.input {
+.birthday_yym {
 	height: 80upx;
-	line-height: 80upx;
-	width: 500upx;
-	margin-left: 40upx;
+	padding-left: 20upx;
+	padding-top: 30upx;
 }
 
 .submitBtn_yym {
 	width: 95%;
 	margin-top: 40upx;
-	/*background-color: #DDD5AF;*/
+	background-color: #4A81AA;
 }
 </style>

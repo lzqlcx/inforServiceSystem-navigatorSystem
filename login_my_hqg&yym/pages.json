@@ -35,31 +35,35 @@
 			}
 		}
         ,{
-            "path" : "pages/mySafe/mySafe",
+            "path" : "pages/my/mySafe",
             "style" : {}
         }
         ,{
-            "path" : "pages/myInfo/myInfo",
+            "path" : "pages/my/myInfo",
             "style" : {}
         }
 		,{
-            "path" : "pages/myNickname/myNickname",
+            "path" : "pages/my/myNickname",
             "style" : {}
         }
         ,{
-            "path" : "pages/myPassword/myPassword",
+            "path" : "pages/my/myPassword",
             "style" : {}
         }
         ,{
-            "path" : "pages/mySex/mySex",
+            "path" : "pages/my/mySex",
             "style" : {}
         }
         ,{
-            "path" : "pages/myBirthday/myBirthday",
+            "path" : "pages/my/myBirthday",
             "style" : {}
         }
         ,{
-            "path" : "pages/myFace/myFace",
+            "path" : "pages/my/myFace",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/my/myExplanation",
             "style" : {}
         }
 		,{
@@ -161,7 +165,7 @@
 						"text": "目的地"
 					},
 					{
-							"pagePath": "pages/myInfo/myInfo",
+							"pagePath": "pages/my/my",
 							"iconPath": "static/test/api.png",
 							"selectedIconPath": "static/test/apiHL.png",
 							"text": "我的"

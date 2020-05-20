@@ -1,10 +1,16 @@
 <template>
 	<view class="pageFill_yym">
-		<form @submit="formSubmitBirthday">
+		<form @submit="formSubmitSex">
 			<view class="page-block" style="margin-top: 20upx;">
-				<picker mode="date" @change="dateChange">
-					<view class="birthday_yym">{{birthday}}</view>
-				</picker>
+				<radio-group class="radioSex_yym" @change="sexChange">
+					<label class="radioSingle_yym">
+						<radio value="1" :checked="sex == 1"/>男
+					</label>
+					<label class="radioSingle_yym">
+						<radio value="0" :checked="sex == 0"/>女
+					</label>
+				</radio-group>
+				
 			</view>
 			
 			<button type="primary" form-type="submit" class="submitBtn_yym">提交</button>
@@ -18,29 +24,29 @@
 	export default {
 		data() {
 			return {
-				birthday: "",
-				globalUser: {}
+				globalUser: {},
+				sex: "-1"
 			};
 		},
 		onLoad() {
 			var me = this;
 			var globalUser = me.getGlobalUser("globalUser");
 			me.globalUser = globalUser;
-			me.birthday = globalUser.birthday;
+			me.sex = globalUser.sex;
 		},
-		methods: {
-			dateChange(e) {
-				this.birthday = e.detail.value;
+		methods:{
+			sexChange(e) {
+				this.sex = e.detail.value;
 			},
-			formSubmitBirthday() {
+			formSubmitSex() {
 				var me = this;
-				var birthday = me.birthday;
+				var sex = me.sex;
 				
 				uni.request({
 					url: me.serverUrl + "/user/modifyUserinfo",
 					data: {
 						"userId": me.globalUser.id,
-						"birthday": birthday
+						"sex": sex
 					},
 					header: {
 						"headerUserId": me.globalUser.id,
@@ -60,12 +66,13 @@
 						} else if (resData.status == 502 || resData.status == 500) {
 							uni.showToast({
 								title: res.data.msg,
-								image: "../../static/icos/error.png",
+								image: "../../static/my/error.png",
 								duration: 2000
 							})
 						}
 					}
 				})
+			
 			}
 		}
 	}
@@ -79,22 +86,21 @@
 	position: absolute;
 }
 
-.birth-input {
-	background-color: white;
-	height: 80upx;
-	line-height: 40upx;
-	padding-left: 20upx;
+.radioSex_yym {
+	display: flex;
+	flex-direction: column;
 }
 
-.birthday_yym {
-	background-color: white;
-	height: 80upx;
-	padding-left: 20upx;
-	padding-top: 30upx;
+.radioSingle_yym {
+	padding: 20upx 20upx;
 }
 
+.radio{
+	color: #4A81AA;
+}
 .submitBtn_yym {
 	width: 95%;
 	margin-top: 40upx;
+	background-color: #4A81AA;
 }
 </style>

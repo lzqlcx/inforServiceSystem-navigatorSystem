@@ -121,22 +121,22 @@
 		methods: {
 			modifySex_yym() {
 				uni.navigateTo({
-					url: "../mySex/mySex"
+					url: "../my/mySex"
 				})
 			},
 			modifyBirthday_yym() {
 				uni.navigateTo({
-					url: "../myBirthday/myBirthday"
+					url: "../my/myBirthday"
 				})
 			},
 			modifyNickname_yym() {
 				uni.navigateTo({
-					url: "../myNickname/myNickname"
+					url: "../my/myNickname"
 				})
 			},
 			modifyPassWord_yym() {
 				uni.navigateTo({
-					url: "../myPassword/myPassword"
+					url: "../my/myPassword"
 				})
 			},
 			operator_yym() {
