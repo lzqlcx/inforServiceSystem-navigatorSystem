@@ -12,7 +12,7 @@
 			<!-- 邮箱、密码登录 -->
 			<template v-if="!status">
 				<input type="text"
-				v-model="mail"
+				v-model="useremail"
 				@change="email" 
 				class="uni-input common_input_hgq"
 				placeholder="请输入邮箱" />
@@ -30,7 +30,7 @@
 				
 				<button class="login_user_set_btn_hgq"
 				:loading="loading" :class="{'login_user_set_btn_disable_hgq':disabled}" 
-				type="primary" :disabled="disabled" @tap="checkpassword">登录</button>
+				type="primary" :disabled="disabled" @click="subm_login">登录</button>
 			</template>
 			
 			
@@ -38,7 +38,7 @@
 			<template v-else>
 				<view class="login_input_box_hgq">
 					<input type="text" 
-					v-model="mail"
+					v-model="useremail"
 					@change="email"
 					class="uni-input common_input_hgq"
 					placeholder="邮箱" />
@@ -46,6 +46,7 @@
 				<view class="login_input_box_hgq">
 					<input type="text" 
 					v-model="password"
+					@change="mima"
 					class="uni-input common_input_hgq forget-input"
 					placeholder="请设置密码" />
 		
@@ -60,7 +61,8 @@
 		<!-- 登录/注册状态切换 -->
 		<view class="login-status u-f-ajc login_padding_hgq login_font_color_hgq" 
 		@tap="changeStatus">
-			{{status?'账号密码登录':'没有账号？马上注册'}}<view class="icon iconfont icon-jinru login_font_color_hgq"></view>
+			{{status?'账号密码登录':'没有账号？马上注册'}}
+			<view class="icon iconfont icon-jinru login_font_color_hgq"></view>
 		</view>
 		
 		
@@ -81,7 +83,7 @@
 				status:false,//false代表邮箱、密码登录页面，true代表注册页面
 				disabled:true,
 				loading:false,
-				mail:"",
+				useremail:"",
 				password:"",
 				codetime:0,
 				}
@@ -95,22 +97,30 @@
 			}
 		},
 		methods: {
-			// 验证手机号码
+			// 验证输入格式
 			email: function() {
 			      var email = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
-			      if (!email.test(this.mail)) {
+			      if (!email.test(this.useremail)) {
 			        uni.showToast({title: '邮箱格式错误！',icon: 'none'});		
-			        this.mail = "";
+			        this.useremail = "";
 			      }
 			    },
 			mima: function() {
-			      var password = /^(?![a-zA-z]+$)(?!\d+$){6,16}$/;
+			      var password =/^[\w_-]{6,16}$/;
 			      if (!password.test(this.password)) {
-			        uni.showToast({title: '密码长度6-16，必须由数字和字母组成！',icon: 'none'});		
+			        uni.showToast({title: '密码长度6-16，由数字和字母和下划线及减号组成！',icon: 'none'});		
 			        this.password = "";
 			      }
 			    },
+			subm_login(){//uni.switchTab可跳转tabBar路径
+			uni.switchTab({//uni.navigateTo用于跳转非 tabBar 的页面的路径 
+			                    url: "../recommend/list",//设置跳转路径，可传参，例如../recommend/list？useremail=''&password=''
+			                    success: res => {},//在list.vue的export default中onLoad用来接收参数
+			                    fail: () => {},
+			                    complete: () => {}
+			                });	
 			},
+			
 			// 初始化表单
 			initInput(){
 				this.useremail='';
@@ -133,24 +143,25 @@
 				uni.navigateBack({ delta: 1 });
 			},
 			// 提交登录
-			submit(){
+			/* submit(){
 				// 账号密码登录
 				if(!this.status){
 					return this.User.login({
 						url:"/user/login",
 						data:{
-							username:this.useremail,
+							useremail:this.useremail,
 							password:this.password
 						}
 					})
 				}
-				// 验证码登录
-				// 验证手机号合法性
+				
+				// 验证邮箱合法性
 				if(!this.isEmail()){
 					return uni.showToast({ title: '请输入正确的邮箱', icon:"none" });
 				}
 				
-		}
+		} */
+	}
 	}
 </script>
 
@@ -253,7 +264,7 @@
 	padding: 10upx 0;
 }
 .uni-input {
-	height: 50upx;
+	height: 70upx;
 	padding: 15upx 25upx;
 	border-radius: 10upx;
 	line-height:50upx;
