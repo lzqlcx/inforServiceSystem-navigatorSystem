@@ -12,9 +12,9 @@
 		class="uniInput_yym commonInput_yym" 
 		placeholder="输入确认密码" />
 		
-		<button class="user-set-btn" 
-		:loading="loading" :class="{'user-set-btn-disable':disabled}" 
-		type="primary" @tap="submit" :disabled="disabled">完成</button>
+		<button class="user-set-btn_yym" 
+		:loading="loading" :class="{'user-set-btn-disable_yym':disabled}" 
+		 @tap="submit" :disabled="disabled">完成</button>
 		
 	</view>
 </template>
@@ -34,7 +34,6 @@
 		onLoad(e) {
 			this.hasPassword = !!(e.password && e.password !== "false");
 		},
-	
 		watch:{
 			oldpassword(val){
 				this.change();
@@ -110,31 +109,31 @@
 
 <style>
 .user-set-btn_yym{
-	width: 100%;
-	margin: 20upx 0;
-	background: #4A81AA!important;
-	border: 0!important;
-	color: #333333!important;
+	width: 95%;
+	margin-top: 40upx;
+	background-color: #4A81AA;
+	color: white!important;
 }
 .user-set-btn-disable_yym{
-	background: #F4F4F4!important;
-	border: 1upx solid #EEEEEE!important;
-	color: #909090!important;
+	width: 95%;
+	margin-top: 40upx;
+	background-color: #4A81AA!important;
+	/*border: 1upx solid #EEEEEE!important;
+	color: #909090!important;*/
 }
 
 .body_yym{
 	padding: 0 20upx!important;
 }
 .uniInput_yym {
-	height: 50upx;
+	height: 80upx;
 	padding: 15upx 25upx;
+	margin-top: 20upx;
 	line-height:50upx;
-	font-size:28upx;
-	background:#FFF;
 	flex: 1;
 }
 .commonInput_yym{
 	font-size: 30upx;
-	border-bottom: 1upx solid #F4F4F4;
+	border-bottom: 1upx ;
 }
 </style>

@@ -41,22 +41,6 @@
 				if (!this.User.userbind) {
 					await this.User.getUserBind();
 				} 
-				/*
-				* {
-						"weixin": {
-							"id": 7,
-							"nickname": "楚绵1111"
-						},
-					   "qq": {
-							"id": 7,
-							"nickname": "楚绵1111"
-						},
-						"sinawebo": {
-							"id": 7,
-							"nickname": "楚绵1111"
-						}
-					}
-				* **/
 				arr[0].data = this.User.userbind.weixin ? this.User.userbind.weixin.nickname : "未绑定";
 				arr[1].data = this.User.userbind.sinaweibo ? this.User.userbind.sinaweibo.nickname : "未绑定";
 				arr[2].data = this.User.userbind.qq ? this.User.userbind.qq.nickname : "未绑定";
@@ -71,7 +55,7 @@
 .user-set-btn{
 	width: 100%;
 	margin: 20upx 0;
-	background: #FFE933!important;
+	background: #4A81AA!important;
 	border: 0!important;
 	color: #333333!important;
 }
