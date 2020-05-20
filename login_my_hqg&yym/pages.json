@@ -127,10 +127,23 @@
 				}
 			}
         
-        ,{
+        ,
+		{
             "path" : "urlTest/urlTest",
             "style" : {}
-        }
+        },
+		{
+			"path":"pages/explain/explain",
+			"style":{
+				"navigationBarTitleText":"讲解"
+			}
+		},
+		{
+			"path":"pages/record/record",
+			"style":{
+				"navigationBarTitleText":"录制讲解"
+			}
+		}
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

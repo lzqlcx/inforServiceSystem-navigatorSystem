@@ -33,20 +33,35 @@
 				<h6>{{array_yrn.explainTitle1_qj}}</h6>
 			</view> -->
 			<view class="guideIntro_qj">
-                <p>
+<!--                <p> -->
                     <!-- 静态请求图片 待更改-->
-					<img src="static/guide01.png" alt="讲解员">
+<!-- 					<img src="static/guide01.png" alt="讲解员">
                     <text>{{array_yrn.guideName1_qj}}</text>
 					<text class="guideLogo_qj">{{array_yrn.guideTag1_qj}}</text>
-                </p>
-                <button class="unlock_qj">听讲解</button>
+                </p> -->
+				<view class="page-body">
+				    <view class="page-section page-section-gap" style="text-align: center;">
+				        <luch-audio 
+						:src="src" 
+						:poster="poster" 
+						:name="name" 
+						:author="author" 
+						:play="audioPlay"
+						></luch-audio>
+				    </view>
+				</view>
+                <!-- <button class="unlock_qj" @tap="goExplain_yrn()">听讲解</button> -->
             </view>
 		</view>
 		
 		<!-- 讲解录制 -->
 		<view class="recordExplain_qj">
-			<i class="fa fa-microphone" aria-hidden="true"> 我也要为大家讲一段</i>
+			<!-- <i class="fa fa-microphone" aria-hidden="true" @tap="goRecord_yrn()"> 我也要为大家讲一段</i> -->
+			    <button @tap="startRecord">开始录音</button>
+			    <button @tap="endRecord">停止录音</button>
+			    <button @tap="playVoice">播放录音</button>
 		</view>
+		<button @tap="goFeed_yrn()">评论</button>
 		
 		<!-- 藏品模块 -->
 		<view class="card_qj">
@@ -93,6 +108,7 @@
 </template>
 
 <script>
+	import Audio from '../../components/luch-audio/luch-audio.vue'
 	export default {
 		data() {
 			return {
@@ -106,6 +122,12 @@
 					guideName1_qj: "  三毛游",
 					guideTag1_qj: "官方讲解"
 				},
+				current: {
+				    poster: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.jpg',
+				    name: '博物馆讲解',
+				    author: '云锦',
+					src: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.mp3'
+				},
 				picList_qj: {
 					colName1: "一号坑",
 					colName2: "车马俑",
@@ -116,13 +138,13 @@
 					exhName3: "展览三",
 					exhName4: "展览四"
 				},
-				
-				
-				
 				museumInfo: [],
 				exhibitionList: [],
 				collectionList: [],
 			}
+		},
+		components: {
+			Audio
 		},
 		methods: {
 			goDetail_qj: function() {
@@ -135,7 +157,21 @@
 				    url: '../collection/collection'
 				});
 			},
-			
+			goFeed_yrn: function() {
+				uni.navigateTo({
+					url:'/pages/message/feedback/feedback'
+				});
+			},
+			goExplain_yrn: function(){
+				uni.navigateTo({
+					url:'../explain/explain'
+				});
+			},
+			goRecord_yrn:function(){
+				uni.navigateTo({
+					url:'../record/record'
+				});
+			},
 			//获取博物馆信息
 			async getMuseumInfo() {
 				const res = await this.$myRequest({

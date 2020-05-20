@@ -120,6 +120,20 @@
     background-color: #4A81AA;
 	color: #FFFFFF;
 }
+.unlock_yrn{
+	float: right;
+	padding: 5rpx 20rpx;
+    background-color: #87CEFA; /* LightSkyBlue */
+    border-radius: 25rpx;
+    border: none;
+    font-size: 15rpx;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.unlock_yrn:hover{
+    background-color: #4A81AA;
+	color: #FFFFFF;
+}
 /* 讲解要点 */
 .explainPoint_qj{
 	margin: 15px;
