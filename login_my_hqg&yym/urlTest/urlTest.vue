@@ -4,7 +4,7 @@
 			<button @click="getUrl">点击</button>
 		</view>
 		<view v-for="ite in museum" :key="ite.pk">
-			{{ite.fields.introduction}}
+			{{ite.fields.collectionintroduction}}
 		</view>
 	</view>
 </template>
@@ -19,7 +19,10 @@
 		methods: {
 			async getUrl() {
 				const res = await this.$myRequest ({
-					url: '/museumtest/75/'
+					url: '/collectiontest/',
+					data: {
+						id : 80
+					}
 				})
 				console.log(res)
 				console.log("dsada")

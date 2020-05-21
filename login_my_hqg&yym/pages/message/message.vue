@@ -177,23 +177,23 @@
 				const res = await this.$myRequest({
 					url: '/museumtest/75/'
 				})
-				console.log(res)
+				// console.log(res)
 				this.museumInfo = res.data.data.items
-			}
-			,
+			},
 			//获取展览信息
 			async getExhibitionInfo() {
 				const res = await this.$myRequest({
 					url: '/exhibitiontest/75/'
 				})
-				console.log(res)
+				// console.log(res)
 				this.exhibitionList = res.data.data.items
 			},
+			//获取藏品信息
 			async getCollectionInfo() {
 				const res = await this.$myRequest({
 					url: '/collectiontest/75/'
 				})
-				console.log(res)
+				// console.log(res)
 				this.collectionList = res.data.data.items
 			}
 		},
