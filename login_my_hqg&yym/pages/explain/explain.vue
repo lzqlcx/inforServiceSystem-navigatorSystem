@@ -1,15 +1,16 @@
 <template>
 	<view>
 	        <view class="page-body">
-	            <view class="page-section page-section-gap" style="text-align: center;">
-	                <luch-audio 
+	            <luch-audio src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.mp3" play.sync="audioPlay"></luch-audio>
+				<view class="page-section page-section-gap" style="text-align: center;">
+				    <luch-audio 
 					:src="src" 
 					:poster="poster" 
 					:name="name" 
 					:author="author" 
-					:play="audioPlay"
+					:play.sync="audioPlay"
 					></luch-audio>
-	            </view>
+				</view>
 	        </view>
 	    </view>
 </template>
@@ -20,20 +21,26 @@
 	export default {
 	    data() {
 	        return {
-	            current: {
-	                poster: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.jpg',
-	                name: '博物馆讲解',
-	                author: '云锦',
-					src: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.mp3'
-	            }
+	            play: true,
+	            src: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.mp3',
+	            poster: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.jpg',
+	            name: '博物馆讲解',
+	            author: '云锦'
 	        }
 	    },
 		components: {
 			Audio
 		},
 		methods:{
-		 }
+			audioPlay() {
+				this.$emit('update:play', true);
+			},
+			audioPause() {
+				this.$emit('update:play', false);
+			}
+			}
 	}
+	
 </script>
 
 <style>
