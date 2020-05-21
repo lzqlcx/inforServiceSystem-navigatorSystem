@@ -25,6 +25,10 @@
 			}
 		},
 		{
+		    "path" : "urlTest/urlTest",
+		    "style" : {}
+		},
+		{
 		    "path" : "pages/my/my",
 		    "style" : {}
 		},
@@ -132,10 +136,7 @@
 			}
         
         ,
-		{
-            "path" : "urlTest/urlTest",
-            "style" : {}
-        },
+		
 		{
 			"path":"pages/explain/explain",
 			"style":{

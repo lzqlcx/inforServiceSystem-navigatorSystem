@@ -178,7 +178,7 @@
 					url: '/museumtest/75/'
 				})
 				console.log(res)
-				this.museumInfo = res.data
+				this.museumInfo = res.data.data.items
 			}
 			,
 			//获取展览信息
@@ -187,14 +187,14 @@
 					url: '/exhibitiontest/75/'
 				})
 				console.log(res)
-				this.exhibitionList = res.data
+				this.exhibitionList = res.data.data.items
 			},
 			async getCollectionInfo() {
 				const res = await this.$myRequest({
 					url: '/collectiontest/75/'
 				})
 				console.log(res)
-				this.collectionList = res.data
+				this.collectionList = res.data.data.items
 			}
 		},
 		onLoad() {
