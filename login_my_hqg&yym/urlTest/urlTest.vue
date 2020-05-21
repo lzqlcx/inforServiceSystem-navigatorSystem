@@ -19,7 +19,10 @@
 		methods: {
 			async getUrl() {
 				const res = await this.$myRequest ({
-					url: '/collectionInfo/4535/',
+					url: '/museumtesttest/',
+					data: {
+						id : 75
+					}
 				})
 				console.log(res)
 				this.museum = res.data.data.items

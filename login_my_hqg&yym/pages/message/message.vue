@@ -80,7 +80,7 @@
 		</view>
 		
 		<!-- 后端渲染-藏品模块 -->
-		<view v-for="item in collectionList" :key="item.pk">
+		<view v-for="item in collectionList" :key="item.pk" @click="goCollectionInfo(item.pk)">
 			<image :src="item.fields.collectionimage">{{item.fields.collectionname}}</image>
 		</view>
 		
@@ -100,7 +100,7 @@
 		    </view>
 		</view>
 		<!-- 后端渲染-展览模块 -->
-		<view v-for="item in exhibitionList" :key="item.pk">
+		<view v-for="item in exhibitionList" :key="item.pk" @click="goExhibitionInfo(item.pk)">
 			<image :src="item.fields.exhibition_picture">{{item.fields.exhibitiontheme}}</image>
 		</view>
 		
@@ -195,7 +195,22 @@
 				})
 				// console.log(res)
 				this.collectionList = res.data.data.items
+			},
+			//跳转到藏品页
+			goCollectionInfo(pk) {
+				uni.navigateTo({
+				    url: '../collection/collection?pk='+pk
+				})
+				// console.log(pk)
+			},
+			//跳转到展览页
+			goExhibitionInfo(pk) {
+				uni.navigateTo({
+					url: '../exhibition/exhibition?pk='+pk
+				})
+				console.log(pk)
 			}
+			
 		},
 		onLoad() {
 			this.getMuseumInfo()
