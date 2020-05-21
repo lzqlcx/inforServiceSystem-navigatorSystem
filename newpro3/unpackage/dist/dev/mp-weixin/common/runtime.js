@@ -104,11 +104,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/city-select/city-select":1,"components/home/other-login":1,"components/uni-status-bar/uni-status-bar":1,"components/home-list-item":1,"components/image/choose":1};
+/******/ 		var cssChunks = {"components/city-select/city-select":1,"components/home/other-login":1,"components/uni-status-bar/uni-status-bar":1,"components/home-list-item":1,"components/uni-icons/uni-icons":1,"components/uni-card/uni-card":1,"components/luch-audio/luch-audio":1,"components/image/choose":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/city-select/city-select":"components/city-select/city-select","components/home/other-login":"components/home/other-login","components/uni-status-bar/uni-status-bar":"components/uni-status-bar/uni-status-bar","components/home-list-item":"components/home-list-item","components/image/choose":"components/image/choose","components/image/compress":"components/image/compress"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/city-select/city-select":"components/city-select/city-select","components/home/other-login":"components/home/other-login","components/uni-status-bar/uni-status-bar":"components/uni-status-bar/uni-status-bar","components/home-list-item":"components/home-list-item","components/uni-icons/uni-icons":"components/uni-icons/uni-icons","components/uni-card/uni-card":"components/uni-card/uni-card","components/luch-audio/luch-audio":"components/luch-audio/luch-audio","components/image/choose":"components/image/choose","components/image/compress":"components/image/compress"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

@@ -13,11 +13,11 @@
 	              :scroll-into-view="'main-'+mainCur" @scroll="VerticalMain">
 				<view class="uni-list-cell" hover-class="uni-list-cell-hover" v-for="(value, key) in chinaLocation" :key="key" :id="'main-'+key" @click="goDetail(value)">
 					<view class="uni-media-list">
-						<image class="uni-media-list-logo" :src="value.cover"></image>
+						<image class="uni-media-list-logo"  src="../../static/test/logo.png"></image>
 						<view class="uni-media-list-body">
 							<view class="uni-media-list-text-top">{{ value.museumname }}</view>
 							<view class="uni-media-list-text-bottom">
-								<text>{{ value.Location }}</text>
+								<text>{{ value.location }}</text>
 							</view>
 						</view>
 					</view>
@@ -42,62 +42,62 @@
 				markers: [],//存储具体经纬度等
 				includepoints:[],//，存储缩放使得内部所有点均能显示只存经纬度
 				//从数据库获取博物馆名称和中文地址,id,图片后，存在chinaLocation中
-			   chinaLocation:
-				[
-				    {
-						id:11,
-						museumname:"故宫博物院",
-						Location:"北京市故宫博物院",
-						cover:"../../static/logo.png"
-					},
-					{
-						id:22,
-						museumname:"天坛",
-						Location:"北京市天坛",
-						cover:"../../static/logo.png"
-					},
-					{
-						id:33,
-						museumname:"北海公园",
-						Location:"北京市北海公园",
-						cover:"../../static/logo.png"
-					},
-					{
-						id:44,
-						museumname:"松山国家森林公园",
-						Location:"北京市延庆区松山国家森林公园",
-						cover:"../../static/logo.png"
-					},
-					{
-						id:55,
-						museumname:"十三陵水库",
-						Location:"北京市十三陵水库",
-						cover:"../../static/logo.png"
-					},
-					{
-						id:66,
-						museumname:"地坛",
-						Location:"北京市地坛",
-						cover:"../../static/logo.png"
-					},
-					{
-						id:77,
-						museumname:"蟒山国家森林公园",
-						Location:"北京市蟒山国家森林公园",
-						cover:"../../static/logo.png"
-					},
-					{
-						id:88,
-						museumname:"鸟巢",
-						Location:"北京市鸟巢",
-						cover:"../../static/logo.png"
-					},
-					{
-						id:99,
-						museumname:"水立方",
-						Location:"北京市水立方",
-						cover:"../../static/logo.png"
-					}
+			   chinaLocation:[
+				// [
+				//     {
+				// 		id:11,
+				// 		museumname:"故宫博物院",
+				// 		Location:"北京市故宫博物院",
+				// 		cover:"../../static/logo.png"
+				// 	},
+				// 	{
+				// 		id:22,
+				// 		museumname:"天坛",
+				// 		Location:"北京市天坛",
+				// 		cover:"../../static/logo.png"
+				// 	},
+				// 	{
+				// 		id:33,
+				// 		museumname:"北海公园",
+				// 		Location:"北京市北海公园",
+				// 		cover:"../../static/logo.png"
+				// 	},
+				// 	{
+				// 		id:44,
+				// 		museumname:"松山国家森林公园",
+				// 		Location:"北京市延庆区松山国家森林公园",
+				// 		cover:"../../static/logo.png"
+				// 	},
+				// 	{
+				// 		id:55,
+				// 		museumname:"十三陵水库",
+				// 		Location:"北京市十三陵水库",
+				// 		cover:"../../static/logo.png"
+				// 	},
+				// 	{
+				// 		id:66,
+				// 		museumname:"地坛",
+				// 		Location:"北京市地坛",
+				// 		cover:"../../static/logo.png"
+				// 	},
+				// 	{
+				// 		id:77,
+				// 		museumname:"蟒山国家森林公园",
+				// 		Location:"北京市蟒山国家森林公园",
+				// 		cover:"../../static/logo.png"
+				// 	},
+				// 	{
+				// 		id:88,
+				// 		museumname:"鸟巢",
+				// 		Location:"北京市鸟巢",
+				// 		cover:"../../static/logo.png"
+				// 	},
+				// 	{
+				// 		id:99,
+				// 		museumname:"水立方",
+				// 		Location:"北京市水立方",
+				// 		cover:"../../static/logo.png"
+				// 	}
 				]
 				
 				
@@ -107,13 +107,13 @@
 			//不同平台event结构不一样，请用console.log()查看具体形式
 		    console.log("barName:",event);
 		    this.banner = JSON.parse(decodeURIComponent(event.details));
-			console.log("barchinaName:",this.banner);
+			console.log("barchinaName:",this.banner.city_name);
 		    //详情标题 接受的banner只有一个city_name从前页面传来
 		    uni.setNavigationBarTitle({
 		        title: this.banner.city_name
 		    });
 			
-			this.getlocations();
+			this.getlocations(this.banner.city_name);
 			
 		},
 		/*onLoad(){
@@ -142,15 +142,28 @@
 			        url: '../message/message?details=' + encodeURIComponent(JSON.stringify(museumdetail))//奶奶的 为什么不能用绝对路径？
 			    });
 			},
-			async getlocations(){
+			async getlocations(e){
 				let i=0;
-				console.log(typeof(this.chinaLocation));
-				console.log(this.chinaLocation.length);
+				// console.log(typeof(this.chinaLocation));
+				console.log("this.chinaLocation.length",this.chinaLocation.length);
+				console.log("this.bannercityname",e);
+				
+				 let res1=await uni.request({
+					url:"http://127.0.0.1:8000/api/citymuseum",
+					data:{
+						city:e,
+					},
+				 })
+				 console.log("res1",res1);
+				 this.chinaLocation=res1[1].data;
+				 console.log("this.chinalocafterres1",this.chinaLocation);
+				 
+				 //将chinaLocation里的中文字符串地址转化为经纬度
 				for (i = 0; i < this.chinaLocation.length; i++) {
 				  console.log(i);
 				  let res=await uni.request({
 					  //腾讯采用gcj02坐标系，百度默认返回bd09坐标系，因此需要修改默认值
-						url:"http://api.map.baidu.com/geocoding/v3/?address="+encodeURIComponent(JSON.stringify(this.chinaLocation[i].Location)).slice(3,-3)+"&output=json&ak=jCjli8kbCMiT6j1j9oPXaq3HYomad338&ret_coordtype=gcj02ll",
+						url:"http://api.map.baidu.com/geocoding/v3/?address="+encodeURIComponent(JSON.stringify(this.chinaLocation[i].location)).slice(3,-3)+"&output=json&ak=jCjli8kbCMiT6j1j9oPXaq3HYomad338&ret_coordtype=gcj02ll",
 					
 					})
 					console.log(res);

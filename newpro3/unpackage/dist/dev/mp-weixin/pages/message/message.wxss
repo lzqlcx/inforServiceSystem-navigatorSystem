@@ -1,3 +1,6 @@
+page{
+	background-color: #FFFFFF;
+}
 /* 标题图片 */
 .musuemPicture_yrn{
 /* 	background:url(https://www.dpm.org.cn/Uploads/Picture/2020/04/29/s5ea9744238b72.jpg);//动态绑定图片？
@@ -81,10 +84,10 @@
 	/* border-bottom: 3rpx solid #f1f1f1; */
 	padding-bottom: 0rpx;
 }
-/* .explainTitle_qj{
+.explainTitle_qj{
 	padding-top: 10rpx;
 	padding-bottom: 7rpx;
-} */
+}
 .tag_qj ._ul{
 	padding-left: 0;
 }
@@ -117,6 +120,21 @@
     cursor: pointer;
 }
 .unlock_qj:hover{
+    background-color: #4A81AA;
+	color: #FFFFFF;
+}
+.unlock_yrn{
+	float: right;
+	padding: 5rpx 20rpx;
+    background-color: #87CEFA; /* LightSkyBlue */
+    border-radius: 25rpx;
+    border: none;
+    font-size: 15rpx;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.unlock_yrn:hover{
     background-color: #4A81AA;
 	color: #FFFFFF;
 }

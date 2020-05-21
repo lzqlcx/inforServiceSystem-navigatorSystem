@@ -4,22 +4,26 @@
     "pages/demination/cityselect/cityselect",
     "pages/details/details",
     "pages/login/login",
+    "urlTest/urlTest",
     "pages/my/my",
     "pages/login/login",
-    "pages/mySafe/mySafe",
-    "pages/myInfo/myInfo",
-    "pages/myNickname/myNickname",
-    "pages/myPassword/myPassword",
-    "pages/mySex/mySex",
-    "pages/myBirthday/myBirthday",
-    "pages/myFace/myFace",
+    "pages/my/mySafe",
+    "pages/my/myInfo",
+    "pages/my/myNickname",
+    "pages/my/myPassword",
+    "pages/my/mySex",
+    "pages/my/myBirthday",
+    "pages/my/myFace",
+    "pages/my/myExplanation",
     "pages/message/message",
     "pages/exhibition/exhibition",
     "pages/collection/collection",
     "pages/sorting/sorting",
     "pages/map-list/map-list",
     "pages/demination/demination",
-    "pages/message/feedback/feedback"
+    "pages/message/feedback/feedback",
+    "pages/explain/explain",
+    "pages/record/record"
   ],
   "subPackages": [],
   "window": {
@@ -52,12 +56,13 @@
         "text": "目的地"
       },
       {
-        "pagePath": "pages/myInfo/myInfo",
+        "pagePath": "pages/my/my",
         "iconPath": "static/test/api.png",
         "selectedIconPath": "static/test/apiHL.png",
         "text": "我的"
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap37.json"
 }

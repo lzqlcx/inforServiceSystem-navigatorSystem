@@ -1,0 +1,108 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 页面铺满屏幕 */
+.pageFill_yym {
+	width:100%;
+	height: 100%;
+	position: absolute;
+}
+.radioSex_yym {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+}
+.radioSingle_yym {
+	padding: 20rpx 20rpx;
+}
+.radio{
+	color: #4A81AA;
+}
+.submitBtn_yym {
+	width: 95%;
+	margin-top: 40rpx;
+	background-color: #4A81AA;
+}
+
