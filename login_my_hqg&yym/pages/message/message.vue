@@ -29,15 +29,7 @@
 			<view id="explain_qj">
                 <h5>讲解</h5>
             </view>
-<<<<<<< HEAD
-			<!-- <view class="explainTitle_qj">
-=======
- 			<view class="explainTitle_qj">
->>>>>>> e6e910e2e5f1968b73586ac7e9439884faa66bd2
-				<h6>{{array_yrn.explainTitle1_qj}}</h6>
-			</view>
-			<view class="guideIntro_qj">
-                <p>
+			<view>
                     <!-- 静态请求图片 待更改-->
  					<img src="static/guide01.png" alt="讲解员">
                     <text>{{array_yrn.guideName1_qj}}</text>
@@ -47,17 +39,8 @@
 				<button class="unlock_yrn" @tap="goFeed_yrn()">评论</button>
             </view>
 		</view>
-<!-- 		<view class="page-body">
-		    <view class="page-section page-section-gap" style="text-align: center;">
-		        <luch-audio 
-				:src="src" 
-				:poster="poster" 
-				:name="name" 
-				:author="author" 
-				:play="audioPlay"
-				></luch-audio>
-		    </view>
-		</view> -->
+		
+		
 		<!-- 讲解录制 -->
 		<view class="recordExplain_qj">
 			<i class="fa fa-microphone" aria-hidden="true" @tap="goRecord_yrn()"> 我也要为大家讲一段</i>
