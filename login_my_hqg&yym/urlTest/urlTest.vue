@@ -19,16 +19,9 @@
 		methods: {
 			async getUrl() {
 				const res = await this.$myRequest ({
-					url: '/collectiontest/',
-					data: {
-						id : 80
-					}
+					url: '/collectionInfo/4535/',
 				})
 				console.log(res)
-				console.log("dsada")
-				console.log(res.data)
-				console.log(res.data.data)
-				console.log(res.data.data.items)
 				this.museum = res.data.data.items
 			}
 		},

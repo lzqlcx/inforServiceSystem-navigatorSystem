@@ -29,7 +29,7 @@
 			<view id="explain_qj">
                 <h5>讲解</h5>
             </view>
-<!-- 			<view class="explainTitle_qj">
+			<!-- <view class="explainTitle_qj">
 				<h6>{{array_yrn.explainTitle1_qj}}</h6>
 			</view> -->
 			<view class="guideIntro_qj">
@@ -181,7 +181,7 @@
 				this.museumInfo = res.data.data.items
 			},
 			//获取展览信息
-			async getExhibitionInfo() {
+			async getExhibitionList() {
 				const res = await this.$myRequest({
 					url: '/exhibitiontest/75/'
 				})
@@ -189,7 +189,7 @@
 				this.exhibitionList = res.data.data.items
 			},
 			//获取藏品信息
-			async getCollectionInfo() {
+			async getCollectionList() {
 				const res = await this.$myRequest({
 					url: '/collectiontest/75/'
 				})
@@ -199,8 +199,8 @@
 		},
 		onLoad() {
 			this.getMuseumInfo()
-			this.getExhibitionInfo()
-			this.getCollectionInfo()
+			this.getExhibitionList()
+			this.getCollectionList()
 		}
 	}
 </script>
