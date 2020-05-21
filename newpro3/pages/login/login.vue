@@ -113,13 +113,26 @@
 			      }
 			    },
 			subm_login(){//uni.switchTab可跳转tabBar路径
-			uni.switchTab({//uni.navigateTo用于跳转非 tabBar 的页面的路径 
-			                    url: "../recommend/list",//设置跳转路径，可传参，例如../recommend/list？useremail=''&password=''
-			                    success: res => {},//在list.vue的export default中onLoad用来接收参数
-			                    fail: () => {},
-			                    complete: () => {}
-			                });	
-			},
+						if(this.useremail=="892417078@qq.com"&this.password=="123456qw")
+						        {   uni.showToast({title: '登录成功！',icon: 'none'});
+									uni.switchTab({//uni.navigateTo用于跳转非 tabBar 的页面的路径 
+						                    url: "../recommend/list",//设置跳转路径，可传参，例如../recommend/list？useremail=''&password=''
+						                    success: res => {},//在list.vue的export default中onLoad用来接收参数
+						                    fail: () => {},
+						                    complete: () => {}
+						                });	
+								}
+						else if(this.useremail!="892417078@qq.com")
+						  {
+							  uni.showToast({title: '用户名不存在！',icon: 'none'});
+							  this.useremail = "";
+						  }
+						else(this.password!="123456qw")			
+			             {
+							 uni.showToast({title: '密码错误！',icon: 'none'});
+							 this.password = "";
+						 }
+						},
 			
 			// 初始化表单
 			initInput(){
