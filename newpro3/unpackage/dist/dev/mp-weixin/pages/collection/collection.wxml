@@ -1,0 +1,1 @@
+<view class="exhMessage_yrn"><view class="exhShow_yrn" style="{{'background-image:'+('url('+exh_yrn.exhCover_yrn+')')+';'}}"></view><view class="uni-title uni-common-mt exhTitle1_yrn">{{exh_yrn.exhTitle_yrn}}</view><view class="exhIntroCard_yrn"><view class="_p"><rich-text nodes="{{exh_yrn.exhIntro_yrn}}"></rich-text></view></view></view>

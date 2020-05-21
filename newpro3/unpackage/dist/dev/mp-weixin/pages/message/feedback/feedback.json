@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "查找",
+  "usingComponents": {
+    "choose": "/components/image/choose",
+    "compress": "/components/image/compress"
+  }
+}

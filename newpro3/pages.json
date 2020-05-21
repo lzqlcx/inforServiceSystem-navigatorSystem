@@ -1,0 +1,189 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/recommend/list",
+			"style": {
+				"navigationBarTitleText": "推荐"
+			}
+		},
+		{
+			"path": "pages/demination/cityselect/cityselect",
+			"style": {
+				"navigationBarTitleText": "推荐"
+			}
+		},
+		{
+			"path": "pages/details/details",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
+		},
+		{
+		    "path" : "pages/login/login",
+		    "style" : {
+				"navigationBarTitleText": "欢迎使用！"
+			}
+		},
+		{
+		    "path" : "urlTest/urlTest",
+		    "style" : {}
+		},
+		{
+		    "path" : "pages/my/my",
+		    "style" : {}
+		},
+		{
+		    "path" : "pages/login/login",
+		    "style" : {
+				"navigationBarTitleText": "欢迎您的登录！"
+			}
+		}
+        ,{
+            "path" : "pages/my/mySafe",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/my/myInfo",
+            "style" : {}
+        }
+		,{
+            "path" : "pages/my/myNickname",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/my/myPassword",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/my/mySex",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/my/myBirthday",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/my/myFace",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/my/myExplanation",
+            "style" : {}
+        }
+		,{
+			"path": "pages/message/message",
+			"style":{
+				"navigationBarTitleText":"博物馆信息",
+				"app-plus":{
+					"pullToRefresh":{
+						"color":"#DDD5AF"
+					}
+				}
+			}
+		},
+		{
+			"path":"pages/exhibition/exhibition",
+			"style":{
+				"navigationBarTitleText":"展览信息"
+			}
+		},
+		{
+			"path":"pages/collection/collection",
+			"style":{
+				"navigationBarTitleText":"藏品信息"
+			}
+		}
+        ,{
+            "path" : "pages/sorting/sorting",
+            "style" : {
+				"navigationBarTitleText":"排行榜"
+			}
+        },
+		{
+		    "path" : "pages/map-list/map-list",
+		    "style" : {
+				
+			}
+		},
+		{
+		    "path" : "pages/demination/demination",
+		    "style" : {
+				"backgroundColor":"#333333",
+				"enablePullDownRefresh" : true ,
+				"app-plus": {
+									"bounce": "none",
+									"titleNView": {
+										"buttons": [ 
+											
+											{
+												"text" : "搜索    ",
+												"fontSize":"16",
+												//"fontSrc":"/static/iconfont.ttf",
+												"float": "right",
+												"color":"##C09460"
+											}
+										]
+									}
+								}
+			
+			}
+		},
+        {
+            "path" : "pages/message/feedback/feedback",
+            "style" : {
+				"navigationBarTitleText":"查找"
+				}
+			}
+        
+        ,
+		
+		{
+			"path":"pages/explain/explain",
+			"style":{
+				"navigationBarTitleText":"讲解"
+			}
+		},
+		{
+			"path":"pages/record/record",
+			"style":{
+				"navigationBarTitleText":"录制讲解"
+			}
+		}
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "公共页面标题",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"enablePullDownRefresh":true
+	},
+	"tabBar": {
+		"color":"#C09460",
+		"selectedColor":"#4A81AA",
+		"list":[
+			{
+					"pagePath": "pages/recommend/list",
+					"iconPath": "static/test/component.png",
+					"selectedIconPath": "static/test/componentHL.png",
+					"text": "推荐"
+				},
+				{
+						"pagePath": "pages/sorting/sorting",
+						"iconPath": "static/test/component.png",
+						"selectedIconPath": "static/test/componentHL.png",
+						"text": "排行榜"
+					},
+					{"pagePath": "pages/demination/demination",
+						"iconPath": "static/test/component.png",
+						"selectedIconPath": "static/test/componentHL.png",
+						"text": "目的地"
+					},
+					{
+							"pagePath": "pages/my/my",
+							"iconPath": "static/test/api.png",
+							"selectedIconPath": "static/test/apiHL.png",
+							"text": "我的"
+						}
+		]
+	}
+}

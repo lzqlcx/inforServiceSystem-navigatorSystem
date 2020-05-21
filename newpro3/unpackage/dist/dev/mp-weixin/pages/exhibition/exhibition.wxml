@@ -1,0 +1,1 @@
+<view class="exhMessage_qj"><view class="exhShow_qj" style="{{'background-image:'+('url('+exh_qj.exhCover_qj+')')+';'}}"></view><view class="uni-title uni-common-mt exhTitle1_qj">{{exh_qj.exhTitle_qj}}</view><view class="exhIntroCard_qj"><view class="_p"><rich-text nodes="{{exh_qj.exhIntro_qj}}"></rich-text></view></view></view>

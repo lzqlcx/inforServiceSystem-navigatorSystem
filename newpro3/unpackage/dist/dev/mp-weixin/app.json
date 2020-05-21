@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/recommend/list",
+    "pages/demination/cityselect/cityselect",
+    "pages/details/details",
+    "pages/login/login",
+    "pages/my/my",
+    "pages/login/login",
+    "pages/mySafe/mySafe",
+    "pages/myInfo/myInfo",
+    "pages/myNickname/myNickname",
+    "pages/myPassword/myPassword",
+    "pages/mySex/mySex",
+    "pages/myBirthday/myBirthday",
+    "pages/myFace/myFace",
+    "pages/message/message",
+    "pages/exhibition/exhibition",
+    "pages/collection/collection",
+    "pages/sorting/sorting",
+    "pages/map-list/map-list",
+    "pages/demination/demination",
+    "pages/message/feedback/feedback"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "公共页面标题",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#C09460",
+    "selectedColor": "#4A81AA",
+    "list": [
+      {
+        "pagePath": "pages/recommend/list",
+        "iconPath": "static/test/component.png",
+        "selectedIconPath": "static/test/componentHL.png",
+        "text": "推荐"
+      },
+      {
+        "pagePath": "pages/sorting/sorting",
+        "iconPath": "static/test/component.png",
+        "selectedIconPath": "static/test/componentHL.png",
+        "text": "排行榜"
+      },
+      {
+        "pagePath": "pages/demination/demination",
+        "iconPath": "static/test/component.png",
+        "selectedIconPath": "static/test/componentHL.png",
+        "text": "目的地"
+      },
+      {
+        "pagePath": "pages/myInfo/myInfo",
+        "iconPath": "static/test/api.png",
+        "selectedIconPath": "static/test/apiHL.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}
